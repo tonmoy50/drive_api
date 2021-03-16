@@ -1,1 +1,1 @@
-# drive_api
+# Drive API Backend (Django REST Framework)
