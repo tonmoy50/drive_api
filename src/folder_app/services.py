@@ -4,6 +4,15 @@ import os
 from django.conf import settings
 
 def init_auth():
+    '''
+    Returns the drive object after authentication
+
+            Parameters:
+                    None
+
+            Returns:
+                    drive : object
+    '''
     cred_path = os.path.join(settings.BASE_DIR, "mycreds.txt")
 
     gauth = GoogleAuth()
@@ -13,6 +22,15 @@ def init_auth():
     return drive
 
 def list_all_user(file_id):
+    '''
+    Returns the list of users that has access the drive folder/file
+
+            Parameters:
+                    file_id : str
+
+            Returns:
+                    all_data : list
+    '''
 
     drive = init_auth()
 
@@ -33,6 +51,16 @@ def list_all_user(file_id):
     return all_data
 
 def add_user(email_id, file_id):
+    '''
+    Returns id value of the new user
+
+            Parameters:
+                    email_id : str
+                    file_id : str
+
+            Returns:
+                    id : str
+    '''
 
     drive = init_auth()
 
@@ -50,7 +78,17 @@ def add_user(email_id, file_id):
     return id
 
 def remove_user(id, file_id):
-    
+    '''
+    Returns boolean true upon method execution 
+
+            Parameters:
+                    id : str
+                    file_id : str
+
+            Returns:
+                    boolean : True
+    '''
+
     drive = init_auth()
 
     test_folder = drive.CreateFile({'id': file_id})
